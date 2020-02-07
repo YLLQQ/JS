@@ -54,3 +54,128 @@ var data = {
     trial1: [[1, 2], [3, 4]],
     trial2: [[2, 3], [4, 5]]
 }
+
+/**
+ * 运算符
+ */
+3 + 2//=>5
+3 - 2//=>1
+3 * 2//=>6
+3 / 2//=>1.5
+points[1].x - points[0].x//=>1
+"3" + "2"//=>"32" “+”可以完成加法运算可以完成字符串连接
+
+var count = 0;
+count++;//自增1
+count--;//自减1
+count += 2;//自增2
+count *= 3;//自乘3
+count//=>6
+
+/**
+ *关系运算符
+ */
+var x = 2, y = 3;
+x == y//=>false
+x != y//=>true
+x < y//=>true
+x <= y//=>true
+x > y//=>false
+x >= y//=>false
+"two" == "three"//=>false 两个字符串不相等
+"two" > "three"//=>true "tw"在字母表中的索引大于"th"
+false == (x > y);//=>true
+
+/**
+ * 逻辑运算符
+ */
+(x == 2) && (y == 3);//=>true
+(x > 3) || (y < 3);//=>false
+!(x == y);//true
+
+/**
+ * 函数，一段带有参数的JavaScript代码段，可以多次调用
+ */
+function plus1(x) {
+    return x + 1;
+}
+
+plus1(y);//=>4
+
+// 函数可以赋值给变量
+var square = function (x) {
+    return x * x;
+}
+
+square(plus1(y));//=>16
+
+/**
+ * 方法，函数和对象组成
+ * 
+ * 当函数赋值给对象的属性，我们称之为“方法”，所有的JavaScript都含有方法
+ */
+var a = [];
+
+a.push(1, 2, 3);
+a.reverse();
+
+// 定义自己的方法，“this”关键字是对定义方法的对象的引用
+points.dist = function () {
+    var p1 = this[0];
+    var p2 = this[1];
+    var a = p2.x - p1.x;
+    var b = p2.y - p1.y;
+
+    return Math.sqrt(a * a + b * b);
+}
+
+points.dist();
+
+/**
+ * 控制语句
+ */
+function abs(x) {
+    if (x >= 0) {
+        return x;
+    } else {
+        return -x;
+    }
+}
+
+function factorial(n) {
+    var product = 1;
+
+    while (n > 1) {
+        product *= n;
+        n--;
+    }
+
+    return product;
+}
+
+factorial(4);//=>24
+
+function factorial2(n) {
+    var i, product = 1;
+
+    for (i = 2; i <= n; i++) {
+        product *= i;
+    }
+
+    return product;
+}
+
+factorial2(5);//=>120
+
+function Point(x, y) {
+    this.x = x;
+    this.y = y;
+}
+
+var p = new Point(1, 1);
+
+Point.prototype.r = function () {
+    return Math.sqrt(this.x * this.x + this.y * this.y);
+}
+
+p.r();
