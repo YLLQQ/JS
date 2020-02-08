@@ -174,6 +174,7 @@ function Point(x, y) {
 
 var p = new Point(1, 1);
 
+//通过给构造函数的prototype对象赋值来给Point对象定义方法
 Point.prototype.r = function () {
     return Math.sqrt(this.x * this.x + this.y * this.y);
 }
